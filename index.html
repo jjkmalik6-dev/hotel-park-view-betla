@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Park View Betla - बेतला नेशनल पार्क के पास आरामदायक होटल</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e8b57 0%, #1e5a3d 100%);
+            color: white;
+            padding: 2em 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background: #2e8b57;
+        }
+
+        section {
+            padding: 3em 2em;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        section h2 {
+            color: #2e8b57;
+            margin-bottom: 1.5em;
+            font-size: 2em;
+            text-align: center;
+            border-bottom: 3px solid #2e8b57;
+            padding-bottom: 0.5em;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(46, 139, 87, 0.7), rgba(46, 139, 87, 0.7)), url('https://via.placeholder.com/1200x400?text=Betla+National+Park') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5em;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            line-height: 1.8;
+        }
+
+        .about-content h3 {
+            color: #2e8b57;
+            margin-bottom: 1em;
+        }
+
+        /* Rooms Section */
+        .rooms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2em;
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+        }
+
+        .room {
+            background: linear-gradient(135deg, #e0f7e0 0%, #c8f0c8 100%);
+            padding: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #2e8b57;
+        }
+
+        .room:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .room h3 {
+            color: #1e5a3d;
+            margin-bottom: 0.5em;
+        }
+
+        .room p {
+            margin-bottom: 0.5em;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #2e8b57;
+            font-weight: bold;
+            margin: 0.5em 0;
+        }
+
+        .features {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 0.5em;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin-top: 2em;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Facilities Section */
+        .facilities-container {
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2em;
+            margin-top: 2em;
+        }
+
+        .facility-item {
+            text-align: center;
+            padding: 1.5em;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-top: 4px solid #2e8b57;
+        }
+
+        .facility-icon {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+
+        .facility-item h4 {
+            color: #2e8b57;
+            margin-bottom: 0.5em;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2em;
+            margin-top: 2em;
+        }
+
+        .testimonial {
+            background: #f0f8f5;
+            padding: 1.5em;
+            border-radius: 8px;
+            border-left: 4px solid #2e8b57;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-stars {
+            color: #ffc107;
+            margin-bottom: 0.5em;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1em;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2e8b57;
+        }
+
+        /* Booking Form Section */
+        .booking-section {
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 2em auto;
+            background: #f9f9f9;
+            padding: 2em;
+            border-radius: 8px;
+            border: 2px solid #2e8b57;
+        }
+
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+            color: #2e8b57;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2e8b57;
+            box-shadow: 0 0 5px rgba(46, 139, 87, 0.3);
+        }
+
+        .booking-btn {
+            background: linear-gradient(135deg, #2e8b57 0%, #1e5a3d 100%);
+            color: white;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s ease;
+        }
+
+        .booking-btn:hover {
+            transform: scale(1.02);
+        }
+
+        /* Map Section */
+        .map-container {
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            margin-top: 2em;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .location-info {
+            background: #f0f8f5;
+            padding: 1.5em;
+            border-radius: 8px;
+            margin-top: 1.5em;
+            border-left: 4px solid #2e8b57;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2em;
+            margin-top: 2em;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1.5em;
+            background: #f0f8f5;
+            border-radius: 8px;
+            border-top: 4px solid #2e8b57;
+        }
+
+        .contact-item strong {
+            color: #2e8b57;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 2em 0;
+            margin-top: 3em;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5em;
+        }
+
+        .footer-links {
+            margin-top: 1em;
+        }
+
+        .footer-links a {
+            color: #2e8b57;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            section {
+                padding: 2em 1em;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                padding: 12px 15px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .hero {
+                height: 250px;
+                font-size: 1.5em;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>🏨 Hotel Park View Betla</h1>
+        <p>बेतला नेशनल पार्क के पास आरामदायक और बजट-फ्रेंडली होटल</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">🏠 Home</a>
+        <a href="#about">ℹ️ About Us</a>
+        <a href="#rooms">🛏️ Rooms</a>
+        <a href="#gallery">🖼️ Gallery</a>
+        <a href="#facilities">✨ Facilities</a>
+        <a href="#testimonials">⭐ Reviews</a>
+        <a href="#booking">📅 Booking</a>
+        <a href="#location">📍 Location</a>
+        <a href="#contact">📞 Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>स्वागत है Hotel Park View में - बेतला नेशनल पार्क के पास आपका आदर्श ठहराव</div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>हमारे बारे में</h2>
+        <div class="about-content">
+            <h3>Hotel Park View Betla का स्वागत है</h3>
+            <p>होटल पार्क व्यू बेतला झारखंड के सबसे खूबसूरत राष्ट्रीय पार्कों के पास स्थित है। हम आपको प्रकृति के बीच एक अविस्मरणीय अनुभव प्रदान करते हैं।</p>
+            <p>हमारे होटल में साफ-सुथरे कमरे, आधुनिक सुविधाएं, और मैत्रीपूर्ण स्टाफ है जो आपकी छुट्टी को विशेष बनाता है। हम परिवारों, दोस्तों के समूहों, और एकल यात्रियों - सभी का स्वागत करते हैं।</p>
+            <p>बेतला नेशनल पार्क में वन्यजीवन को देखने, ट्रैकिंग, और प्रकृति की सैर के लिए हम आपकी सर्वश्रेष्ठ पसंद हैं।</p>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms">
+        <h2>🛏️ कमरे और दरें</h2>
+        <div class="rooms-container">
+            <div class="room">
+                <h3>सामान्य कमरा</h3>
+                <p class="price">₹1,500/रात</p>
+                <div class="features">
+                    <p>✓ Basic Bed & Furniture</p>
+                    <p>✓ Attached Bathroom</p>
+                    <p>✓ Window View</p>
+                </div>
+            </div>
+            <div class="room">
+                <h3>डिलक्स कमरा</h3>
+                <p class="price">₹2,200/रात</p>
+                <div class="features">
+                    <p>✓ Better Bed Quality</p>
+                    <p>✓ Large Window</p>
+                    <p>✓ Hot Water</p>
+                    <p>✓ TV & Cable</p>
+                </div>
+            </div>
+            <div class="room">
+                <h3>AC डिलक्स कमरा</h3>
+                <p class="price">₹2,800/रात</p>
+                <div class="features">
+                    <p>✓ AC with Control</p>
+                    <p>✓ Premium Bed</p>
+                    <p>✓ Bathroom with Hot Water</p>
+                    <p>✓ TV & WiFi</p>
+                </div>
+            </div>
+            <div class="room">
+                <h3>डोर्मिटरी</h3>
+                <p class="price">₹1,000/रात (प्रति बिस्तर)</p>
+                <div class="features">
+                    <p>✓ 4-6 Shared Beds</p>
+                    <p>✓ Shared Bathroom</p>
+                    <p>✓ Budget Friendly</p>
+                    <p>✓ Great for Groups</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>🖼️ गैलरी</h2>
+        <div class="gallery-container">
+            <p style="text-align: center; color: #666; margin-bottom: 2em;">होटल और बेतला नेशनल पार्क की तस्वीरें</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Hotel+Exterior" alt="Hotel Exterior">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Room+View" alt="Room View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Restaurant" alt="Restaurant">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Wildlife" alt="Wildlife">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Sunset+View" alt="Sunset">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Park+Entrance" alt="Park">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities">
+        <h2>✨ सुविधाएं</h2>
+        <div class="facilities-container">
+            <div class="facilities-grid">
+                <div class="facility-item">
+                    <div class="facility-icon">🅿️</div>
+                    <h4>मुफ्त पार्किंग</h4>
+                    <p>आपके वाहन के लिए सुरक्षित पार्किंग</p>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-icon">📶</div>
+                    <h4>मुफ्त WiFi</h4>
+                    <p>सभी कमरों और सामान्य क्षेत्रों में उच्च गति WiFi</p>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-icon">🍽️</div>
+                    <h4>रूम सर्विस</h4>
+                    <p>किसी भी समय भोजन और पेय का आदेश दें</p>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-icon">🌅</div>
+                    <h4>बालकनी कमरे</h4>
+                    <p>प्रकृति के दृश्य के साथ विशाल बालकनियां</p>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-icon">🍴</div>
+                    <h4>रेस्तरां</h4>
+                    <p>स्वादिष्ट भारतीय और अंतर्राष्ट्रीय भोजन</p>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-icon">🧘</div>
+                    <h4>Yoga & Wellness</h4>
+                    <p>सुबह योग क्लास और स्पा सेवाएं</p>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-icon">👨‍💼</div>
+                    <h4>24/7 स्टाफ</h4>
+                    <p>हमेशा आपकी सहायता के लिए तैयार</p>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-icon">🚐</div>
+                    <h4>यात्रा सेवा</h4>
+                    <p>पार्क टूर और ट्रैकिंग व्यवस्था</p>
+                </div>
+                <div class="facility-item">
+                    <div class="facility-icon">🎒</div>
+                    <h4>बैकपैकर सुविधा</h4>
+                    <p>बजट यात्रियों के लिए विशेष पैकेज</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>⭐ अतिथि समीक्षाएं</h2>
+        <div class="testimonials">
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"बेहतरीन होटल! कर्मचारी बहुत मिलनसार थे और कमरे साफ-सुथरे थे। बेतला नेशनल पार्क की यात्रा अविस्मरणीय रही।"</p>
+                    <p class="testimonial-author">- राज कुमार, दिल्ली</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"परिवार के साथ शानदार समय बिताया। खाना बहुत स्वादिष्ट था और सेवा उत्कृष्ट थी। निश्चित रूप से फिर से आएंगे!"</p>
+                    <p class="testimonial-author">- प्रिया शर्मा, बैंगलोर</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"बजट के अनुकूल होटल। दरें सस्ती हैं और सुविधाएं अच्छी हैं। प्रकृति प्रेमियों के लिए आदर्श स्थान।"</p>
+                    <p class="testimonial-author">- अमित वर्मा, मुंबई</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"होटल का स्थान बेहद खूबसूरत है। कमरे आरामदायक थे और WiFi की गति अच्छी थी। सब कुछ परफेक्ट था!"</p>
+                    <p class="testimonial-author">- नेहा शर्मा, कोलकाता</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking">
+        <h2>📅 बुकिंग करें</h2>
+        <div class="booking-section">
+            <p style="text-align: center; color: #666; margin-bottom: 1.5em;">अपनी पसंद की तारीख चुनें और अभी बुक करें</p>
+            <form class="booking-form" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label for="name">नाम *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">ईमेल *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">फोन नंबर *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkin">चेक-इन तारीख *</label>
+                    <input type="date" id="checkin" name="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout">चेक-आउट तारीख *</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                </div>
+                <div class="form-group">
+                    <label for="room-type">कमरे का प्रकार *</label>
+                    <select id="room-type" name="room-type" required>
+                        <option value="">-- कमरे का प्रकार चुनें --</option>
+                        <option value="normal">सामान्य कमरा (₹1,500/रात)</option>
+                        <option value="deluxe">डिलक्स कमरा (₹2,200/रात)</option>
+                        <option value="ac-deluxe">AC डिलक्स कमरा (₹2,800/रात)</option>
+                        <option value="dormitory">डोर्मिटरी (₹1,000/रात)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guests">अतिथियों की संख्या *</label>
+                    <input type="number" id="guests" name="guests" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">विशेष अनुरोध (वैकल्पिक)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="किसी विशेष अनुरोध को यहाँ लिखें..."></textarea>
+                </div>
+                <button type="submit" class="booking-btn">बुकिंग की पुष्टि करें</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location">
+        <h2>📍 स्थान</h2>
+        <div class="location-info">
+            <h3>बेतला नेशनल पार्क के पास</h3>
+            <p><strong>पता:</strong> Hotel Park View, Betla National Park, Latehar, Jharkhand 825301, India</p>
+            <p><strong>शहर से दूरी:</strong> Ranchi से ~150 km, Latehar से ~15 km</p>
+            <p><strong>स्थल:</strong> समुद्र तल से 600 मीटर की ऊंचाई पर</p>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3553.230000000000000!2d84.049!3d23.873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e3e0e0e0e0e0e0e0e0e0e0!2sHotel+Park+View+Betla!5e0!3m2!1sen!2sin!4v1625555555555" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>📞 संपर्क करें</h2>
+        <div class="contact-section">
+            <p style="text-align: center; color: #666; margin-bottom: 2em;">हमसे संपर्क करने के लिए कृपया निम्नलिखित माध्यमों का उपयोग करें</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>☎️ फोन</strong>
+                    <p>+91-XXXXX-XXXXX</p>
+                    <p>+91-XXXXX-XXXXX</p>
+                </div>
+                <div class="contact-item">
+                    <strong>📧 ईमेल</strong>
+                    <p><a href="mailto:info@hotelparkvie.com" style="color: #2e8b57;">info@hotelparkview.com</a></p>
+                    <p><a href="mailto:booking@hotelparkview.com" style="color: #2e8b57;">booking@hotelparkview.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <strong>🕐 समय</strong>
+                    <p>सोमवार - रविवार: 24/7</p>
+                    <p>हमेशा आपकी सहायता के लिए तैयार</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Hotel Park View Betla. सर्वाधिकार सुरक्षित।</p>
+        <p>बेतला नेशनल पार्क के पास आपका आदर्श ठहराव</p>
+        <div class="footer-links">
+            <a href="#home">Home</a> |
+            <a href="#about">About</a> |
+            <a href="#rooms">Rooms</a> |
+            <a href="#facilities">Facilities</a> |
+            <a href="#contact">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        function handleBooking(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const roomType = document.getElementById('room-type').value;
+            const guests = document.getElementById('guests').value;
+            
+            // In a real application, this data would be sent to a server
+            console.log({
+                name,
+                email,
+                phone,
+                checkin,
+                checkout,
+                roomType,
+                guests
+            });
+            
+            alert(`धन्यवाद ${name}! आपकी बुकिंग का अनुरोध प्राप्त हुआ है। हम जल्द ही आपसे संपर्क करेंगे।`);
+            
+            // Reset form
+            document.querySelector('.booking-form').reset();
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
